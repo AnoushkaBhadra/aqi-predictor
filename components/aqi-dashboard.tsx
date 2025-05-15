@@ -49,6 +49,7 @@ export default function AqiDashboard() {
           Refresh Data
         </Button>
       </div>
+
       {error && (
         <Alert variant="destructive">
           <AlertCircle className="h-4 w-4" />
@@ -56,22 +57,36 @@ export default function AqiDashboard() {
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       )}
-      <div className="flex justify-center items-center w-full">
+
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6 w-full">
         {loading ? (
-          <div className="bg-white rounded-xl shadow-md p-6 h-64 animate-pulse max-w-md w-full">
-            <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
-            <div className="h-24 bg-gray-200 rounded mb-4"></div>
-            <div className="h-6 bg-gray-200 rounded w-1/2"></div>
-          </div>
+          <>
+            <div className="bg-white rounded-xl shadow-md p-6 h-64 animate-pulse max-w-md w-full">
+              <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+              <div className="h-24 bg-gray-200 rounded mb-4"></div>
+              <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+            </div>
+            <div className="bg-white rounded-xl shadow-md p-6 h-64 animate-pulse max-w-md w-full hidden md:block">
+              <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+              <div className="h-24 bg-gray-200 rounded mb-4"></div>
+              <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+            </div>
+          </>
         ) : aqiData ? (
-          <div className="flex justify-center w-full max-w-md">
+          <>
             <AqiCard
               title="Current AQI"
               value={aqiData.current.value}
               location={aqiData.location}
               timestamp={aqiData.current.timestamp}
             />
-          </div>
+            <AqiCard
+              title="Predicted AQI (next hour)"
+              value={aqiData.pm10.value}
+              location={aqiData.location}
+              timestamp={aqiData.current.timestamp}
+            />
+          </>
         ) : (
           <div className="text-center py-12">
             <p className="text-gray-500">No data available</p>
