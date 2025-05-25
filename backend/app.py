@@ -47,7 +47,7 @@ def update_data():
 
         cursor.execute("SELECT COUNT(*) FROM aqi_readings")
         count = cursor.fetchone()[0]
-        if count >= 24:
+        if count >= 5040:
             cursor.execute("DELETE FROM aqi_readings WHERE id = (SELECT id FROM aqi_readings ORDER BY id LIMIT 1)")
 
         cursor.execute("""
