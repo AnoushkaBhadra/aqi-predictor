@@ -113,7 +113,15 @@ export default function AqiCard({ title, value, unit = "", location, timestamp }
         {timestamp && (
           <div className="flex items-center gap-1">
             <Clock className="h-3 w-3" />
-            <span>{new Date(timestamp).toLocaleTimeString()}</span>
+            <span>
+            {new Date(timestamp).toLocaleTimeString('en-IN', {
+              timeZone: 'Asia/Kolkata',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: true
+            })} IST
+            </span>
           </div>
         )}
       </CardFooter>

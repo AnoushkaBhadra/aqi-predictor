@@ -25,7 +25,7 @@ try:
                 current_data[key] = value
 
             if len(current_data) == 9:
-                url = "http://<YOUR-SERVER-IP>:5000/update" 
+                url = "https://server.aimliedc.tech/aqi-predictor/update" 
                 try:
                     response = requests.post(url, json=current_data)
                     print("Data sent to server:", response.json())
