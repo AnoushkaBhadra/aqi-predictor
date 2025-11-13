@@ -107,7 +107,7 @@ export default function AqiCard({ title, value, unit = "", location, timestamp }
         {location && (
           <div className="flex items-center gap-1">
             <MapPin className="h-3 w-3" />
-            <span>{location}</span>
+            <span>UEM Kolkata</span>
           </div>
         )}
         {timestamp && (
