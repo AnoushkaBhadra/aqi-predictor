@@ -115,7 +115,7 @@ export default function AqiCard({ title, value, unit = "", location, timestamp }
             <Clock className="h-3 w-3" />
             <span>
             {new Date(timestamp).toLocaleTimeString('en-IN', {
-              timeZone: 'Asia/Kolkata',
+              timeZone: 'Asia/UEMK',
               hour: '2-digit',
               minute: '2-digit',
               second: '2-digit',
