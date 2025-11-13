@@ -1,7 +1,7 @@
 import type { AqiData } from "./types"
 
 export async function fetchAqiData(): Promise<AqiData> {
-  const response = await fetch("https://server.aimliedc.tech/aqi-predictor/predict")
+  const response = await fetch("https://server.uemcseaiml.org/aqi-predictor/predict")
 
   if (!response.ok) {
     throw new Error("Failed to fetch AQI data")
